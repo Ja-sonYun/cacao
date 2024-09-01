@@ -39,6 +39,8 @@ pub trait AppDelegate {
         false
     }
 
+    fn frame_update(&self) {}
+
     /// Fired when data for continuing an activity is available. Currently, the
     /// `restoration_handler` is not used, but there to communicate intent with what this API will
     /// eventually be doing.

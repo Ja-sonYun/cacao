@@ -43,6 +43,9 @@ pub use number::NSNumber;
 mod string;
 pub use string::NSString;
 
+mod screen;
+pub use screen::NSScreen;
+
 // Separate named module to not conflict with the `url` crate. Go figure.
 mod urls;
 pub use urls::{NSURLBookmarkCreationOption, NSURLBookmarkResolutionOption, NSURL};

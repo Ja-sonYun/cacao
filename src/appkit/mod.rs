@@ -23,6 +23,9 @@ pub use enums::FocusRingType;
 mod event;
 pub use event::*;
 
+mod timer;
+pub use timer::*;
+
 pub mod menu;
 pub mod printing;
 pub mod toolbar;

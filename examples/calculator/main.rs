@@ -73,8 +73,8 @@ impl CalculatorApp {
             let characters = evt.characters();
             println!("{}", characters);
 
-            //use calculator::{dispatch, Msg};
-            /*match characters.as_ref() {
+            use calculator::{dispatch, Msg};
+            match characters.as_ref() {
                 "0" => dispatch(Msg::Push(0)),
                 "1" => dispatch(Msg::Push(1)),
                 "2" => dispatch(Msg::Push(2)),
@@ -94,7 +94,7 @@ impl CalculatorApp {
                 "c" => dispatch(Msg::Clear),
                 "." => dispatch(Msg::Decimal),
                 _ => {}
-            }*/
+            }
 
             None
         }));

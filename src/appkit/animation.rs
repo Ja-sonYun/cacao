@@ -1,7 +1,7 @@
 use block::ConcreteBlock;
-use objc::{class, msg_send, sel};
+use objc::{class, msg_send, runtime::Object, sel};
 
-use crate::foundation::id;
+use crate::{foundation::id, image::{Image, ImageView}};
 
 /// A very, very basic wrapper around NSAnimationContext. 100% subject to change.
 #[derive(Debug)]

@@ -5,6 +5,7 @@ use objc::runtime::{Class, Object};
 use objc::{msg_send, msg_send_id, sel};
 
 use crate::foundation::id;
+use crate::image::{Image, ImageView};
 
 /// A wrapper for an animation proxy object in Cocoa that supports basic animations.
 #[derive(Clone, Debug)]

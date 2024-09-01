@@ -1,5 +1,7 @@
 //! Various traits used for Views.
 
+use objc::foundation::NSRect;
+
 #[cfg(feature = "appkit")]
 use crate::dragdrop::{DragInfo, DragOperation};
 
@@ -73,4 +75,6 @@ pub trait ViewDelegate {
     fn dragging_exited(&self, info: DragInfo) {}
 
     //fn perform_key_equivalent(&self, event: Event) -> bool { false }
+
+    fn draw_rect(&self, rect: NSRect) {}
 }

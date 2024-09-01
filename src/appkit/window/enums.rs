@@ -39,7 +39,7 @@ pub enum WindowStyle {
     NonActivatingPanel,
 
     /// A HUD window.
-    HUDWindow
+    HUDWindow,
 }
 
 impl From<WindowStyle> for NSUInteger {
@@ -56,7 +56,7 @@ impl From<WindowStyle> for NSUInteger {
             WindowStyle::Utility => 1 << 4,
             WindowStyle::DocModalWindow => 1 << 6,
             WindowStyle::NonActivatingPanel => 1 << 7,
-            WindowStyle::HUDWindow => 1 << 13
+            WindowStyle::HUDWindow => 1 << 13,
         }
     }
 }
@@ -75,7 +75,7 @@ impl From<&WindowStyle> for NSUInteger {
             WindowStyle::Utility => 1 << 4,
             WindowStyle::DocModalWindow => 1 << 6,
             WindowStyle::NonActivatingPanel => 1 << 7,
-            WindowStyle::HUDWindow => 1 << 13
+            WindowStyle::HUDWindow => 1 << 13,
         }
     }
 }
@@ -87,14 +87,14 @@ pub enum TitleVisibility {
     Visible,
 
     /// Title is hidden.
-    Hidden
+    Hidden,
 }
 
 impl From<TitleVisibility> for NSInteger {
     fn from(visibility: TitleVisibility) -> Self {
         match visibility {
             TitleVisibility::Visible => 0,
-            TitleVisibility::Hidden => 1
+            TitleVisibility::Hidden => 1,
         }
     }
 }
@@ -120,7 +120,7 @@ pub enum WindowToolbarStyle {
 
     /// The Big Sur (11.0+) style, but more compact. Toolbar flushes up against the title and
     /// spacing is reduced.
-    UnifiedCompact
+    UnifiedCompact,
 }
 
 impl From<WindowToolbarStyle> for NSUInteger {
@@ -130,7 +130,7 @@ impl From<WindowToolbarStyle> for NSUInteger {
             WindowToolbarStyle::Expanded => 1,
             WindowToolbarStyle::Preferences => 2,
             WindowToolbarStyle::Unified => 3,
-            WindowToolbarStyle::UnifiedCompact => 4
+            WindowToolbarStyle::UnifiedCompact => 4,
         }
     }
 }
@@ -161,7 +161,7 @@ pub enum WindowLevel {
     PopUpMenu,
 
     /// The level for a screen saver.
-    ScreenSaver
+    ScreenSaver,
 }
 
 impl From<WindowLevel> for NSInteger {
@@ -174,7 +174,23 @@ impl From<WindowLevel> for NSInteger {
             WindowLevel::Status => 25,
             WindowLevel::DockWindow => 100,
             WindowLevel::PopUpMenu => 101,
-            WindowLevel::ScreenSaver => 1000
+            WindowLevel::ScreenSaver => 1000,
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug)]
+pub enum CollectionBehavior {
+    Default = 0,
+    Stationary = 1 << 4,
+    // ...
+}
+
+impl From<CollectionBehavior> for u64 {
+    fn from(behavior: CollectionBehavior) -> Self {
+        match behavior {
+            CollectionBehavior::Default => 0,
+            CollectionBehavior::Stationary => 1 << 4,
         }
     }
 }
